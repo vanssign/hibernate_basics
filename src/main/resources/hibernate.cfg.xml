@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name = "hibernate.dialect">
+         org.hibernate.dialect.MySQL8Dialect
+        </property>
+
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <property name = "hibernate.connection.url">
+         jdbc:mysql://localhost:3306/hibtest
+        </property>
+
+        <property name = "hibernate.connection.username">
+         root
+        </property>
+
+        <property name = "hibernate.connection.password">
+         sql_passwords
+        </property>
+
+        <property name="current_session_context_class">thread</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!-- creating new tables or flushing then creating -->
+        <property name="hbm2ddl.auto">create</property>
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <!-- second level caching for custom quieries -->
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <!-- List of XML mapping files -->
+        <!-- <mapping resource = "Employee.hbm.xml"/> -->
+
+    </session-factory>
+</hibernate-configuration>
